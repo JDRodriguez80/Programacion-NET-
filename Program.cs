@@ -1,66 +1,69 @@
 ﻿using System;
 
-namespace Actividad_3
+namespace U2_A2
 {
     class Program
     {
         static void Main(string[] args)
         {
-           programa();
-
-        }
-        public static void programa(){
-
-            //Declarando la variable que manejara la fecha y hora
-            DateTime ahora = DateTime.Now;
-            // presentacion del programa con los datos pedidos en la planeacion 
-            Console.WriteLine("El siguiente programa calcula medidas estadisticas");
+            // presentacion del programa 
+            Console.WriteLine("Este programa Realiza un calculo de numeros dados y muestra sus posibles permutaciónes ");
+            Console.WriteLine("=======================================================================================");
             Console.WriteLine("Autor: Jesús Darío Rodríguez");
             Console.WriteLine("Matricula: es1822021661");
-            Console.WriteLine("Actividad 3. Resolver problemas con C#");
-
-            //Mostrando la fecha y hora a traves de DateTime
-            Console.WriteLine("Fecha actual: {0}", ahora.ToShortDateString());
-            Console.WriteLine("Hora actual:{0}", ahora.ToShortTimeString());
+            Console.WriteLine("=======================================================================================");
             Console.WriteLine("Presione cualquier tecla para continuar...");
-            //se agrega la necesidad de presionar una tecla para que la presentacion del programa
-            //pueda ser leeida 
+            Console.WriteLine("=======================================================================================");
             System.Console.ReadKey();
             Console.Clear();
-            // requiriendo los datos de x al usuario
-            Console.WriteLine("Ingrese el primer parametro de x");
-            //convirtiendo el dato ingresado a un double y gardandolo en una variable 
-            double num1 = Convert.ToDouble(Console.ReadLine());
+            // requiriendo los datos del primer numero  al usuario
+            Console.WriteLine("Ingrese el primer número");
+            //convirtiendo el dato ingresado a un int y guardandolo en una variable 
+            int num1 = (int)Convert.ToInt64(Console.ReadLine());
 
-            // requiriendo los datos de x al usuario
-            Console.WriteLine("Ingrese el Segundo parametro de x");
-            //convirtiendo el dato ingresado a un double y gardandolo en una variable 
-            double num2 = Convert.ToDouble(Console.ReadLine());
+            // requiriendo los datos del segundo numero  al usuario
+            Console.WriteLine("Ingrese el segundo número");
+            //convirtiendo el dato ingresado a un int y guardandolo en una variable 
+            int num2 = (int)Convert.ToInt64(Console.ReadLine());
 
-            // requiriendo los datos de x al usuario
-            Console.WriteLine("Ingrese el Tercer parametro de x");
-            //convirtiendo el dato ingresado a un double y gardandolo en una variable 
-            double num3 = Convert.ToDouble(Console.ReadLine());
+            //requiriendo los datos del tercer numero  al usuario
+            Console.WriteLine("Ingrese el tercer número");
+            //convirtiendo el dato ingresado a un int y guardandolo en una variable 
+            int num3 = (int)Convert.ToInt64(Console.ReadLine());
 
-            //Formula para la media
-            double media = (num1 + num2 + num3) / 3;
-            //Formula para la varianza 
-            double auxVarianza1 = num1 - media;
-            double auxVarianza2 = num2 - media;
-            double auxVarianza3 = num3 - media;
-            double varianza = ((Math.Pow(auxVarianza1, 2)+(Math.Pow(auxVarianza2, 2 )+(Math.Pow(auxVarianza3, 2)))) / 3);
-            // calulando la desviacion estandar
-
-            double desviacion = Math.Sqrt(varianza);
-
-            Console.WriteLine("Los resultados son los siguientes: ");
-            Console.WriteLine("La media calculada fue :{0}", media);
-            Console.WriteLine("La varianza calculada fue :{0}", varianza);
-            Console.WriteLine("La desvuacion estandar calculada fue :{0}", desviacion);
-
-
+            //llamando al metodo para mostrar las permutaciones posibles
+            permuta(num1, num2, num3);
+            //llamando al metodo para mostrar la suma acumulativa
+            sumas(num1, num2, num3);
 
         }
-        
+        //metodo para mostrar las posibles combinaciones de los numeros ingresados
+        static void permuta(int num1, int num2, int num3) {
+            Console.Clear();
+            Console.WriteLine("Los numeros ingresados fueron: {" + num1 + "," + num2 + "," + num3 + "}");
+            Console.WriteLine("Sus posibles combinaciones son: ");
+            Console.WriteLine("=======================================================================================");
+            Console.WriteLine("Posibles permutaciónes ");
+            Console.WriteLine("{"+num1+","+num2+","+num3+"}");
+            Console.WriteLine("{"+num1+","+num3+","+num2+"}");
+            Console.WriteLine("{"+num2+","+num1+","+num3+"}");
+            Console.WriteLine("{"+num2+","+num3+","+num1+"}");
+            Console.WriteLine("{"+num3+","+num1+","+num2+"}");
+            Console.WriteLine("{"+num3+","+num2+","+num1+"}");
+        }
+        //metodo para calcular la suma acumulativa 
+        static void sumas(int num1, int num2, int num3) {
+            //declaración e inicialización de variables auxiliares para guardar las sumas intermedias
+            int aux1 = 0;
+            int aux2 = 0;
+            int aux3 = 0;
+            aux1 = num1;
+            aux2 = num1 + num2;
+            aux3 = aux2 + num3;
+            Console.WriteLine("La suama acumulativa es:");
+            Console.WriteLine("{" + aux1 + "," + aux2 + "," + aux3 + "}");
+
+        }
+
     }
 }
