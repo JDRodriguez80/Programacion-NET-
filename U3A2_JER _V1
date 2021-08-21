@@ -1,0 +1,148 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace u3A2
+{
+    class Program
+    {
+
+
+        static void Main(string[] args)
+        {
+            Menu();
+        }
+        static void Menu()
+        {
+            //ese metodo es el responsable de presentar el menu
+            int aux = 1;
+            while (aux != 0)
+            {
+                Console.WriteLine("Campaña de Vacunación  Anti-Covid 19");
+                Console.WriteLine("");
+                Console.WriteLine("=======================================");
+                Console.WriteLine("1.- Consultar la fechas de vacunación ");
+                Console.WriteLine("");
+                Console.WriteLine("2.- Consultar los efectos de la vacuna");
+                Console.WriteLine("");
+                Console.WriteLine("3.- Salir");
+                Console.WriteLine("");
+                Console.WriteLine("=======================================");
+                Console.WriteLine("Seleccione una opcion ...");
+                Console.WriteLine("");
+
+                int seleccion = (int)Convert.ToInt32(Console.ReadLine());
+                switch (seleccion)
+
+                {
+
+                    case 1:
+                        fechas();
+                        break;
+                    case 2:
+                        efectos();
+                        break;
+                    case 3:
+                        Console.WriteLine("Muchas gracias por utilizar el programa" +
+                            "Mantengase seguro" +
+                            " © Jesus Dario Rodriguez | ES1822021661");
+                        aux = 0;
+                        break;
+                    default:
+                        Console.WriteLine("Elija una opción valida");
+                        break;
+                }
+            }
+        }
+        static void fechas()
+        {
+            Console.WriteLine("Cuantos años cumplidos tiene");
+            int edad = (int)Convert.ToInt32(Console.ReadLine());
+            if (edad >= 60)
+            {
+                Console.WriteLine("La primer dosis de la vacuna se le aplicara el dia 01/01/21");
+                Console.WriteLine("La segunda dosis debera ser aplicada el dia 15/01/21");
+            }
+            else if (edad >= 50 && edad <= 59)
+            {
+                Console.WriteLine("La primer dosis de la vacuna se le aplicara el dia 01/02/21");
+                Console.WriteLine("La segunda dosis debera ser aplicada el dia 15/02/21");
+
+            }
+            else if (edad >= 40 && edad <= 49)
+            {
+                Console.WriteLine("La primer dosis de la vacuna se le aplicara el dia 15/02/21");
+                Console.WriteLine("La segunda dosis debera ser aplicada el dia 02/03/21");
+            }
+            else if (edad >= 30 && edad <= 39)
+            {
+                Console.WriteLine("La primer dosis de la vacuna se le aplicara el dia 04/03/21");
+                Console.WriteLine("La segunda dosis debera ser aplicada el dia 17/03/21");
+            }
+            else if (edad >= 18 && edad <= 29)
+            {
+                Console.WriteLine("La primer dosis de la vacuna se le aplicara el dia 30/03/21");
+                Console.WriteLine("La segunda dosis debera ser aplicada el dia 14/04/21");
+            }
+        }
+        static void efectos()
+        {
+            Console.WriteLine("");
+            Console.WriteLine("Usted ha elegido la opción, Conocer efectos secundarios de las vacunas");
+
+            Console.WriteLine("");
+            Console.WriteLine("1 - Sputnik.");
+            Console.WriteLine("2 - Pfizer.");
+            Console.WriteLine("3 - Astra Zeneca.");
+            Console.Write("Seleccione un numero de vacuna: ");
+            int vacuna = (int)Convert.ToInt64(Console.ReadLine());
+
+            switch (vacuna)
+
+            {
+
+                case 1:
+                    Console.WriteLine("");
+                    Console.WriteLine("Usted ha elegido la Vacuna: Sputnik");
+                    Console.WriteLine("El tipo de vacuna es: Gen con código de la proteina");
+                    Console.WriteLine("de otro virus, para este tipo de vacuan, se requiere");
+                    Console.WriteLine("la aplicación de 2 dosis.");
+                    Console.WriteLine("Efectos Secundarios que puede presentar:");
+                    Console.WriteLine("Dolor, calor, Cefalea, Nauseas.");
+                    Console.WriteLine("");
+
+                    break;
+
+                case 2:
+                    Console.WriteLine("");
+                    Console.WriteLine("Usted ha elegido la Vacuna: Pfizer");
+                    Console.WriteLine("El tipo de vacuna es: ARNm y para esta vacauna");
+                    Console.WriteLine("se requiere la aplicación de 2 dosis.");
+                    Console.WriteLine("Efectos Secundarios que puede presentar:");
+                    Console.WriteLine("Hinchazon, dolor, cefalea, Escalofrios.");
+                    Console.WriteLine("");
+                    break;
+
+                case 3:
+                    Console.WriteLine("");
+                    Console.WriteLine("Usted ha elegido la Vacuna: Astra Zeneca");
+                    Console.WriteLine("El tipo de vacuna es: Adenovirus de chimpancé,");
+                    Console.WriteLine("para esta vacauna se requiere la aplicación de 2 dosis.");
+                    Console.WriteLine("Efectos Secundarios que puede presentar:");
+                    Console.WriteLine("Sensibilidad, dolor, calor, Cefalea, Nauseas.");
+                    Console.WriteLine("");
+                    break;
+
+                default:
+                    Console.WriteLine("");
+                    Console.WriteLine("Elija una opción valida!!!");
+                    break;
+
+            }
+        }
+    }
+}
+
+
